@@ -1,7 +1,7 @@
 {
     "name": "bristol",
     "version": "1.0.0",
-    "description": "Business Rest Information Server Taken Off Line",
+    "description": "Business REST Information Server Taken Off Line",
     "main": "server.js",
     "repository": "https://gitlab-odx.oracle.com/odx/bristol",
     "scripts": {
