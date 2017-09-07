@@ -1,0 +1,21 @@
+{
+    "name": "bristol",
+    "version": "1.0.0",
+    "description": "Business Rest Information Server Taken Off Line",
+    "main": "server.js",
+    "repository": "https://gitlab-odx.oracle.com/odx/bristol",
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "nodemon --ignore client/ server.js",
+        "client": "cd client && npm start"
+    },
+    "author": "Thom Leggett",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^3.5.0"
+    },
+    "dependencies": {
+        "express": "^4.15.4",
+        "nodemon": "^1.12.0"
+    }
+}
