@@ -1,4 +1,4 @@
-# B.R.I.S.T.O.L
+# B.R.I.S.T.O.L.
 Business REST Information Server Taken Off Line
 
 ## Run
