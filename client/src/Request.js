@@ -6,7 +6,7 @@ class Request extends Component {
     // }
 
     render() {
-        return <li>{this.props.method.toUpperCase()} {this.props.path}</li>;
+        return <li>{this.props.method.toUpperCase()} {this.props.path} {this.props.status}</li>;
     }
 }
 
