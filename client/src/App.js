@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         const endpoints = Object.keys(this.state.endpoints).map( (id) => {
             const endpoint = this.state.endpoints[id];
-            return <Endpoint key={endpoint.name} name={endpoint.name} path={endpoint.path} method={endpoint.method} requests={endpoint.requests} canned_response={endpoint.response}/>;
+            return <Endpoint key={id} id={id} name={endpoint.name} path={endpoint.path} method={endpoint.method} requests={endpoint.requests} canned_response={endpoint.response}/>;
         });
 
         return (<table><thead></thead><tbody><tr>

@@ -1,0 +1,26 @@
+ul {
+    padding-left: 0px;
+}
+
+ul.requests li {
+    padding: 5px 0px 0px 5px;
+    list-style: none;
+    font-family: courier;
+    font-size: small;
+    background-color: #aaa;
+    border-bottom: solid 1px black;
+}
+
+ul.requests li ul li {
+    padding-top: 0px;
+    padding-left: 3px;
+    border-bottom: none;
+}
+
+ul.requests li.ok {
+    background-color: #0b0;
+}
+
+ul.requests li.error {
+    background-color: #f00;
+}
