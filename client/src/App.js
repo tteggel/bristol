@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 import Endpoint from './Endpoint';
 
 class App extends Component {
@@ -9,6 +10,8 @@ class App extends Component {
         this.state = {
             endpoints: {}
         };
+
+        this.clear_all = this.clear_all.bind(this);
     }
 
     componentDidMount() {
@@ -17,12 +20,16 @@ class App extends Component {
                 fetch('/control/endpoints')
                 .then( (response) => response.json() )
                 .then( (endpoints) => this.setState({endpoints: endpoints}) )
-            , 1000
+            , 100
         );
     }
 
     componentWillUnmount() {
         clearInterval(this._poller);
+    }
+
+    clear_all() {
+        fetch('/control/endpoints/requests', {method: 'delete'});
     }
 
     render() {
@@ -31,9 +38,12 @@ class App extends Component {
             return <Endpoint key={id} id={id} name={endpoint.name} path={endpoint.path} method={endpoint.method} requests={endpoint.requests} canned_response={endpoint.response}/>;
         });
 
-        return (<table><thead></thead><tbody><tr>
+        return (<div>
+                <table><thead></thead><tbody><tr>
                 {endpoints}
                 </tr></tbody></table>
+                <button className="btn btn-danger btn-clear fixed-bottom" onClick={this.clear_all}>clear</button>
+                </div>
                );
     }
 }

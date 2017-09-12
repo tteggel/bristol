@@ -2,8 +2,8 @@
     display: none;
 }
 
-input, button {
-    width: 31%;
+.canned_response input, .canned_response button {
+    width: 44%;
 }
 
 .canned_response {

@@ -41,6 +41,12 @@ Object.keys(endpoints).map( (id) => {
     });
 });
 
+app.delete(control_root + '/endpoints/requests', (req, res) => {
+    Object.keys(endpoints).map( (id) => {
+        endpoints[id].requests =[];
+    });
+});
+
 app.listen(3001, function () {
     console.log("BS server listening on port 3001!");
 });
