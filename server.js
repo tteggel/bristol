@@ -4,9 +4,9 @@ const app = express();
 const control_root = "/control";
 
 let endpoints = {
-    bookflight:   { name: "Book Flight",   path: "/flight", method: "post",   response: {status: 200, body: {reference: "boom"}}},
+    bookflight:   { name: "Book Flight",   path: "/flight", method: "post",   response: {status: 200, body: {confirmation: "boom"}}},
     bookhotel:    { name: "Book Hotel",    path: "/hotel",  method: "post",   response: {status: 200, body: {confirmation: "432156899"}}},
-    bookcar:      { name: "Book Car",      path: "/car",    method: "post",   response: {status: 200, body: {sequence_number:"HZ67891"}}},
+    bookcar:      { name: "Book Car",      path: "/car",    method: "post",   response: {status: 200, body: {confirmation: "HZ67891"}}},
     cancelflight: { name: "Cancel Flight", path: "/flight", method: "delete", response: {status: 200, body: {}}},
     cancelhotel:  { name: "Cancel Hotel",  path: "/hotel",  method: "delete", response: {status: 200, body: {}}},
     cancelcar:    { name: "Cancel Car",    path: "/car",    method: "delete", response: {status: 200, body: {}}},
