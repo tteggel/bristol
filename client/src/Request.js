@@ -36,8 +36,7 @@ class Request extends Component {
                 <span className="timestamp">{this.state.timestamp}s ago</span>
                 <ul>
                 <li><b>Request Body:</b>{JSON.stringify(this.props.request.body, null, '\t')}</li>
-                <li><b>Response Body:</b>{this.props.request.response.body}</li>
-                </ul>
+            <li><b>Response Body:</b>{JSON.stringify(this.props.request.response.body, null, '\t')}</li> </ul>
             </div>
         </li>;
     }

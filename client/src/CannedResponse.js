@@ -6,7 +6,7 @@ class CannedResponse extends Component {
         super(props);
         this.state = {
             status: this.props.response.status,
-            body: this.props.response.body,
+            body: JSON.stringify(this.props.response.body),
             collapsed: true
         };
         this.set_canned_response = this.set_canned_response.bind(this);
@@ -29,15 +29,17 @@ class CannedResponse extends Component {
     }
 
     set_canned_response(event) {
-        fetch("/control/" + this.props.id,
-              { method: "post",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(
-                    { status: this.state.status,
-                      body: this.state.body})});
+        fetch("/control/" + this.props.id, {
+            method: "post",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify( {
+                status: this.state.status,
+                body: JSON.parse(this.state.body)
+            })
+        });
     }
 
     header_click(event) {
@@ -49,10 +51,10 @@ class CannedResponse extends Component {
             <div className="canned_response">
                 <div className="title" onClick={this.header_click}>{this.state.collapsed ? "> " : "^ "}Canned Response</div>
                 <div className={this.state.collapsed ? "hidden" : ""}>
-                    <label>Status Code:</label><input id="status" type="text" value={this.state.status} onChange={this.canned_response_status_changed}/>
-                    <textarea onChange={this.canned_response_body_changed} value={this.state.body}></textarea>
-                    <button type="button" className="btn btn-primary btn-sm" onClick={this.set_canned_response}>set</button>
-                    <button type="button" className="btn btn-secondary btn-sm" onClick={this.request_click}>test</button>
+                <label>Status Code:</label><input id="status" type="text" value={this.state.status} onChange={this.canned_response_status_changed}/>
+                <textarea onChange={this.canned_response_body_changed} value={this.state.body}></textarea>
+                <button type="button" className="btn btn-primary btn-sm" onClick={this.set_canned_response}>set</button>
+                <button type="button" className="btn btn-secondary btn-sm" onClick={this.request_click}>test</button>
                 </div>
             </div>
         );

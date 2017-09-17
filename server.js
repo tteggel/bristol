@@ -4,13 +4,13 @@ const app = express();
 const control_root = "/control";
 
 let endpoints = {
-    bookflight:   { name: "Book Flight",   path: "/flight", method: "post",   response: {status: 200, body: "XBHJSK"}},
-    bookhotel:    { name: "Book Hotel",    path: "/hotel",  method: "post",   response: {status: 200, body: "432156899"}},
-    bookcar:      { name: "Book Car",      path: "/car",    method: "post",   response: {status: 200, body: "HZ67891"}},
-    cancelflight: { name: "Cancel Flight", path: "/flight", method: "delete", response: {status: 200, body: ""}},
-    cancelhotel:  { name: "Cancel Hotel",  path: "/hotel",  method: "delete", response: {status: 200, body: ""}},
-    cancelcar:    { name: "Cancel Car",    path: "/car",    method: "delete", response: {status: 200, body: ""}},
-    email:        { name: "Send Email",    path: "/email",  method: "post",   response: {status: 200, body: "Done"}}
+    bookflight:   { name: "Book Flight",   path: "/flight", method: "post",   response: {status: 200, body: {reference: "boom"}}},
+    bookhotel:    { name: "Book Hotel",    path: "/hotel",  method: "post",   response: {status: 200, body: {confirmation: "432156899"}}},
+    bookcar:      { name: "Book Car",      path: "/car",    method: "post",   response: {status: 200, body: {sequence_number:"HZ67891"}}},
+    cancelflight: { name: "Cancel Flight", path: "/flight", method: "delete", response: {status: 200, body: {}}},
+    cancelhotel:  { name: "Cancel Hotel",  path: "/hotel",  method: "delete", response: {status: 200, body: {}}},
+    cancelcar:    { name: "Cancel Car",    path: "/car",    method: "delete", response: {status: 200, body: {}}},
+    email:        { name: "Send Email",    path: "/email",  method: "post",   response: {status: 200, body: {staus: "Done"}}}
 };
 
 app.use(body_parser.json());
